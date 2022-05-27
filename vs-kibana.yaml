@@ -1,0 +1,22 @@
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: kibana
+  namespace: elasticsearch
+spec:
+  gateways:
+  - istio-system/gateway
+  hosts:
+  - stage-api.verituityplatform.com
+  http:
+  - match:
+    - uri:
+        prefix: /
+    name: kibana
+    rewrite:
+      uri: /
+    route:
+    - destination:
+        host: kibana-kb-http
+        port:
+          number: 5601
