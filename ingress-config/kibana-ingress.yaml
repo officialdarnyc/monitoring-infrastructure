@@ -10,10 +10,10 @@ metadata:
 spec:
   tls:
     - hosts:
-        - "kibana.verituityplatform.com"
+        - "kibana.prod.verituityplatform.com"
       secretName: kibana-tls-secret
   rules:
-  - host: kibana.verituityplatform.com
+  - host: kibana.prod.verituityplatform.com
     http:
       paths:
       - pathType: Prefix

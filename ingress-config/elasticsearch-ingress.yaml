@@ -10,10 +10,10 @@ metadata:
 spec:
   tls:
     - hosts:
-        - "elasticsearch.verituityplatform.com"
+        - "elasticsearch.prod.verituityplatform.com"
       secretName: elasticsearch-tls-secret
   rules:
-  - host: elasticsearch.verituityplatform.com
+  - host: elasticsearch.prod.verituityplatform.com
     http:
       paths:
       - pathType: Prefix
