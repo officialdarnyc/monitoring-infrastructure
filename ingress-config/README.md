@@ -10,8 +10,14 @@
 `kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.2.0/deploy/static/provider/cloud/deploy.yaml`
 
 ## Create ingress resource to expose Kibana and Elasticsearch through nginx ingress
-- `kubectl apply -f kibana-ingress.yaml`
-- `kubectl apply -f elasticsearch-ingress.yaml`
+
+### For staging
+- `kubectl apply -f kibana-stage-ingress.yaml`
+- `kubectl apply -f elasticsearch-stage-ingress.yaml`
+
+### For prod
+- `kubectl apply -f kibana-prod-ingress.yaml`
+- `kubectl apply -f elasticsearch-prod-ingress.yaml`
 
 ## Patch nginx ingress controller to allow large log files to flow
 `kubectl -n ingress-nginx patch configmap ingress-nginx-controller -p '{"data": {"proxy-body-size": "5tb"}}'`

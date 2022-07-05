@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: kibana-ingress
+  namespace: elasticsearch
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    kubernetes.io/tls-acme: "true"
+    kubernetes.io/ingress.class: nginx
+spec:
+  tls:
+    - hosts:
+        - "kibana-stage.verituityplatform.com"
+      secretName: kibana-tls-secret
+  rules:
+  - host: kibana-stage.verituityplatform.com
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: kibana-kb-http
+            port: 
+              number: 5601
