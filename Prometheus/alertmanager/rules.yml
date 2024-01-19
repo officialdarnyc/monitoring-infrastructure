@@ -1,0 +1,24 @@
+groups:
+- name: Down
+  rules:
+# Instance is down
+  - alert: InstanceDown
+    expr: up == 0
+    for: 1m
+    labels:
+      severity: 'critical'
+    annotations:
+      summary: "Instance  is down"
+      description: "Instance has been down for more than 1 minute."
+
+# Node memory is filling up (< 20% left)
+- name: Low Memory
+  rules:
+  - alert: HostOutOfMemory
+    expr: node_memory_MemAvailable_bytes / node_memory_MemTotal_bytes * 100 < 20
+    for: 2m
+    labels:
+      severity: warning
+    annotations:
+      summary: Host out of memory (instance {{ $labels.instance }})
+      description: "Node memory is filling up (< 10% left)\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"

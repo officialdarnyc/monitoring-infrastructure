@@ -11,7 +11,7 @@ spec:
         disabled: true
   nodeSets:
   - name: default
-    count: 7
+    count: 12
     config:
       node.store.allow_mmap: false
     volumeClaimTemplates:

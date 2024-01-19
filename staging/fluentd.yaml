@@ -88,7 +88,7 @@ spec:
           - name: FLUENT_ELASTICSEARCH_USER
             value: "elastic"
           - name: FLUENT_ELASTICSEARCH_PASSWORD
-            value: "xxxx"
+            value: "FuuS22810V24ei07NMJc2MqX"
         resources:
           limits:
             memory: 512Mi
